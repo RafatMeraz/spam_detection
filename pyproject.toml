@@ -7,6 +7,7 @@ authors = [
 ]
 requires-python = ">=3.14"
 dependencies = [
+    "dvc>=3.67.1",
     "ipykernel>=7.4.0",
     "nltk>=3.10.4",
     "numpy>=2.5.4",
