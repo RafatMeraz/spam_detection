@@ -2,34 +2,41 @@ stages:
   data_ingestion:
     cmd: python pipeline/data_ingestion.py
     deps:
-      - pipeline/data_ingestion.py
+    - pipeline/data_ingestion.py
     outs:
-      - data/raw
+    - data/raw
   data_preprocessing:
     cmd: python pipeline/data_preprocessing.py
     deps:
-      - data/raw
-      - pipeline/data_preprocessing.py
+    - data/raw
+    - pipeline/data_preprocessing.py
     outs:
-      - data/interim
+    - data/interim
   feature_engineering:
     cmd: python pipeline/feature_engineering.py
     deps:
-      - data/interim
-      - pipeline/feature_engineering.py
+    - data/interim
+    - pipeline/feature_engineering.py
     outs:
-      - data/processed
+    - data/processed
   model_training:
     cmd: python pipeline/model_training.py
     deps:
-      - data/processed
-      - pipeline/model_training.py
+    - data/processed
+    - pipeline/model_training.py
     outs:
-      - models/model.pkl
+    - models/model.pkl
   model_evaluation:
     cmd: python pipeline/model_evaluation.py
     deps:
-      - models/model.pkl
-      - pipeline/model_evaluation.py
+    - models/model.pkl
+    - pipeline/model_evaluation.py
     outs:
-      - reports/metrics.json
+    - reports/metrics.json
+params:
+- dvclive/params.yaml
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step

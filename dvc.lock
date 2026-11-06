@@ -75,8 +75,8 @@ stages:
       size: 746678
     - path: pipeline/model_evaluation.py
       hash: md5
-      md5: 5f329b2d34639df4b5245d30bbc036af
-      size: 3449
+      md5: 1dd4ed6bf09c08e651234b92b3132232
+      size: 4411
     outs:
     - path: reports/metrics.json
       hash: md5
